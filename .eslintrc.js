@@ -28,6 +28,8 @@ module.exports = {
         // you should turn the original rule off *only* for test files
         "@typescript-eslint/unbound-method": "off",
         "jest/unbound-method": "error",
+        "@typescript-eslint/ban-types": "off",
+        "@typescript-eslint/no-unsafe-call": "off",
       },
     },
   ],

@@ -1,4 +1,4 @@
-export function carry<T>(fn: (...args: T[]) => T) {
+export function carry<T>(fn: (...args: T[]) => T): Function {
   return function inner(...args1: T[]) {
     if (fn.length === args1.length) {
       return fn(...args1);
