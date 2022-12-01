@@ -5,7 +5,8 @@ export function spiral<T>(A:T[][],depth=0,res: T[]=[]) : T[] {
 
     const lenH = A.length;
    // let maxDepthH = Math.ceil(lenH / 2);
-    const maxDepth=lenW>lenH?(Math.ceil((lenH-2)/ 2)-1):(Math.ceil((lenW-1) / 2)-1);
+    const maxDepth=lenW>lenH?Math.floor((lenH-1)/ 2):Math.floor((lenW-1) / 2);
+    // let maxDepth = Math.floor((lenH+lenW-4) / 4);
 
     for(let i = depth; i < lenW - depth; i++) {
         res.push(A[depth][i]);
@@ -23,7 +24,7 @@ export function spiral<T>(A:T[][],depth=0,res: T[]=[]) : T[] {
         res.push(A[i][depth]);
     }
 
-    if(depth <= maxDepth) spiral(A,depth + 1,res);
+    if((depth+1) <= maxDepth) spiral(A,depth + 1,res);
 
     return res;
 }
