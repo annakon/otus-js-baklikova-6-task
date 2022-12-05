@@ -6,10 +6,15 @@ export class Parallel {
     }
 
     num_mas(...args:Array<() => Promise<number>>): Array<Array<() => Promise<number>>> {
-        if (this.num === 1) {
-            return [args];
+
+        const res: Array<Array<() => Promise<number>>>=[];
+        for (let i = 0; i <Math.ceil(args.length/this.num); i++) {
+            for (let j=0; j<this.num && (i*this.num+j)<args.length;j++) {
+                if (i===0) res[j]=[];
+                res[j].push(args[i*this.num+j]);
+            }
         }
-        return [[args[0], args[2], args[4]], [args[1], args[3]]]
+        return res;
     }
 
     async jobs(...args:Array<() => Promise<number>>) : Promise<number[]> {
