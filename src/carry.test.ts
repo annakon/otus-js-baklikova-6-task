@@ -5,13 +5,7 @@ describe("carry", () => {
     jest.clearAllMocks();
   });
   it("проверка carry", () => {
-    const func = (
-      a: number,
-      b: number,
-      c: number,
-      d: number,
-      e: number
-    ): number => a + b + c + d + e;
+    const func = (a: number, b: number, c: number, d: number, e: number): number => a + b + c + d + e;
     const hof = carry<number>(func);
     expect(hof(1, 2, 3, 4, 5)).toBe(15);
     expect(hof(2, 3, 4)(5, 6)).toBe(20);
