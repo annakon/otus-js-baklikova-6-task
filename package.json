@@ -8,7 +8,9 @@
     "lint": "prettier --check . && eslint . src --ext .js,.ts",
     "lint:fix": "prettier --write . && eslint . --fix src --ext .js,.ts",
     "prepare": "husky install",
-    "typecheck": "npx tsc --noemit"
+    "typecheck": "npx tsc --noemit",
+    "build": "webpack --node-env production",
+    "dev": "webpack serve --node-env development"
   },
   "repository": {
     "type": "git",
